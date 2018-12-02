@@ -1,0 +1,92 @@
+<html>
+  <style>
+    header{
+      background-color: #e6e6e6;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: black;
+    }
+    input[type="text"]{
+      border: none;
+      font-size: 16px;
+      height: auto;
+      margin: 0;
+      outline: 0;
+      padding: 8px;
+      width: 60%;
+      background-color: #e8eeef;
+      color: #8a97a0;
+      box-shadow:0 1px 0 rgba(181,144,144,0.1) inset;
+      margin-bottom: 30px;
+    }
+    li{
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    a.view:link, a:visited{
+      background-color: #DCDCDC;
+      color: black;
+      display: inline-block;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a.view:hover, a:active{
+      background-color: #D3D3D3;
+    }
+    p{
+      font-size: 16px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    </style>
+  </style>
+  <header>
+    <H1>Restaurants</H1>
+    <H4>User: <%= name %></H4>
+    <H4>Showing documents (criteria: {})</H4>
+  </header>
+  <br>
+  <H4>search</H4>
+  <form action="/searchby" method="get">
+    <input type="text" name="searchtext"><br>
+    <select name="searchoption">
+      <option value="name">name</option>
+      <option value="borough">borough</option>
+      <option value="cuisine">cuisine</option>
+    </select>
+    <input type="submit" value="search"><br>
+  </form>
+  <hr>
+  <br><li><a href=/fileupload class="view">Create New Restaurant</a></li>
+  <br>
+    <body>
+      <% for (i in Restaurant) { %>
+        <br>
+        <li><a href=/display?_id=<%= Restaurant[i]._id%>>
+          <%=Restaurant[i].name%></a></li>
+        <br>
+      <% } %>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    header{
+      background-color: #e6e6e6;
+      padding: 10px;
+      font-size: 20px;
+      color: black;
+    }
+    a:link, a:visited{
+      background-color: #DCDCDC;
+      color: black;
+      display: inline-block;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a:hover, a:active{
+      background-color: #D3D3D3;
+    }
+    p{
+      font-size: 16px;
+    }
+  </style>
+    <header>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style> img {width: 100%;height: auto;}</style>
+        <H1><%=Restaurant[0].name%></H1>
+    </header>
+    <body>
+      <div>
+        <p><img src="data:<%=Restaurant[0].mimetype%>;base64, <%=Restaurant[0].image%>" height="50%" width="50%" onerror="this.style.display='none';"><p>
+        <p>Borough: <%=Restaurant[0].borough%></p>
+        <p>Cuisine: <%=Restaurant[0].cuisine%></p>
+        <p>Street: <%=Restaurant[0].address.street%></p>
+        <p>Building: <%=Restaurant[0].address.building%></p>
+        <p>Zipcode: <%=Restaurant[0].address.zipcode%></p>
+        <p>Rate: <% for (i in Restaurant[0].rate) { %>
+          [<%=Restaurant[0].rate[i].rate%>,<%=Restaurant[0].rate[i].owner%>]
+          <% } %>
+          </p>
+        <p>GPS: [<%=Restaurant[0].address.coord[0]%>,<%=Restaurant[0].address.coord[1]%>]</p>
+        <p>Created by: <%=Restaurant[0].owner%></p>
+        <a href=/ngmap?lat=<%= Restaurant[0].address.coord[0]%>&lon=<%=Restaurant[0].address.coord[1]%>>GoogleMap</a><br><br>
+        <a href=/rate?_id=<%= Restaurant[0]._id %>&owner=<%=Restaurant[0].owner%>>Rate</a>
+        <a href=/edit?_id=<%= Restaurant[0]._id %>&owner=<%=Restaurant[0].owner%>>Edit</a>
+        <a href=/delete?_id=<%= Restaurant[0]._id %>&owner=<%=Restaurant[0].owner%>>Delete</a>
+        <a href=/>Go Back</a>
+      <div>
+    </body>
+</html>

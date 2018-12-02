@@ -1,0 +1,52 @@
+<html>
+  <style>
+    header{
+      background-color: #e6e6e6;
+      padding: 10px;
+      font-size: 20px;
+      color: black;
+    }
+    input[type="text"]{
+      border: none;
+      font-size: 16px;
+      height: auto;
+      margin: 0;
+      outline: 0;
+      padding: 8px;
+      width: 60%;
+      background-color: #e8eeef;
+      color: #8a97a0;
+      box-shadow:0 1px 0 rgba(181,144,144,0.1) inset;
+      margin-bottom: 30px;
+    }
+    li{
+      padding: 10px;
+      color: #8a97a0;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow:0 1px 0 rgba(181,144,144,0.1) inset;
+      margin-bottom: 10px;
+    }
+  </style>
+  <header>
+    <H1>Moddify Restautant <%= Restaurant[0].name %></H1>
+  </header>
+  <body>
+  	<form action="/edit?id=<%= Restaurant[0]._id %>" method="post" enctype="multipart/form-data">
+      <br>
+        Name<br><input type="text" name="name" value = <%= Restaurant[0].name %>><br>
+        Cuisine<br><input type="text" name="cuisine" value= <%= Restaurant[0].cuisine %>><br>
+        Borough<br><input type="text" name="borough" value= <%= Restaurant[0].borough %>><br>
+        Street<br><input type="text" name="street" value= <%= Restaurant[0].address.street %>><br>
+        Building<br><input type="text" name="building" value= <%= Restaurant[0].address.building %>><br>
+        Zipcode<br><input type="text" name="zipcode" value= <%= Restaurant[0].address.zipcode %>><br>
+        Gpslat<br><input type="text" name="gpslat" value= <%= Restaurant[0].address.coord[0] %>><br>
+        Gpslon<br><input type="text" name="gpslon" value= <%= Restaurant[0].address.coord[1] %>><br>
+        <input type="file" name="filetoupload"><br>
+        <input type="hidden" name="id" value = <%= Restaurant[0]._id %>
+        <br>
+    <input type="submit" value="edit">
+  	</form>
+  </body>
+</html>

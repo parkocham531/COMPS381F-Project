@@ -1,0 +1,44 @@
+<html>
+  <style>
+    header{
+      background-color: #e6e6e6;
+      padding: 10px;
+      font-size: 20px;
+      color: black;
+    }
+    a:link, a:visited{
+      background-color: #DCDCDC;
+      color: black;
+      display: inline-block;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a:hover, a:active{
+      background-color: #D3D3D3;
+    }
+    p{
+      font-size: 16px;
+    }
+  </style>
+   <body>
+     <header>
+       <H1><%= name %></H1>
+     </header>
+     <br>
+     <img src="data:<%=mime%>;base64, <%=img%>" height="50%" width="50%" onerror="this.style.display='none';">
+     <p>Borough: <%= borough %></p>
+     <p>Cuisine: <%= cuisine %></p>
+     <p>Street: <%= street %></p>
+     <p>Building: <%= building %></p>
+     <p>Zipcode: <%= zipcode %></p>
+     <p>GPS: [<%= gpslat %>,<%= gpslon %>]</p>
+     <p>Created by: <%= username %></progress></p>
+     <p><a href=/ngmap?lat=<%= gpslat %>&lon=<%= gpslon %>>Google Map</a></p>
+     <a href=/rate?_id=<%= id %>&owner=<%=username%>>Rate</a>
+     <a href=/edit?_id=<%= id %>&owner=<%=username%>>Edit</a>
+     <a href=/delete?_id=<%= id %>&owner=<%=username%>>Delete</a>
+     <a href=/>Go Basck</a>
+   </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <style>
+    header{
+      background-color: #e6e6e6;
+      padding: 10px;
+      font-size: 20px;
+      color: black;
+    }
+    input[type="text"]{
+      border: none;
+      font-size: 16px;
+      height: auto;
+      margin: 0;
+      outline: 0;
+      padding: 8px;
+      width: 60%;
+      background-color: #e8eeef;
+      color: #8a97a0;
+      box-shadow:0 1px 0 rgba(181,144,144,0.1) inset;
+      margin-bottom: 30px;
+    }
+    li{
+      padding: 10px;
+      color: #8a97a0;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow:0 1px 0 rgba(181,144,144,0.1) inset;
+      margin-bottom: 10px;
+    }
+  </style>
+  <header>
+    <H1>Rate Restautant <%= Restaurant[0].name %></H1>
+  </header>
+  <body>
+  	<form action="/rate?id=<%= Restaurant[0]._id %>" method="post" enctype="multipart/form-data">
+      <br>
+        Rate<br><input type="text" name="rate" ><br>
+        <input type="hidden" name="id" value = <%= Restaurant[0]._id %>>
+        <br>
+    <input type="submit" value="rate">
+  	</form>
+  </body>
+</html>
